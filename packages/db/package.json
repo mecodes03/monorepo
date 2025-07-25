@@ -2,13 +2,15 @@
   "name": "@repo/db",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "prisma": "prisma/schema.prisma",
   "exports": {
-    "./client": "./src/client.ts"
+    "./client": {
+      "default": "./dist/client.js",
+      "types": "./src/client.ts"
+    }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b",
     "prisma:migrate": "prisma migrate dev",
     "prisma:generate": "prisma generate",
     "prisma:studio": "prisma studio"
