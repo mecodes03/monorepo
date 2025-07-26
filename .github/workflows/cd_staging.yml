@@ -12,4 +12,8 @@ jobs:
         run: |
           rm -rf .ssh
           mkdir .ssh
-          ls -a
+          cd .ssh
+          touch secret_key
+          echo "key: ${{env.SSH_PRIVATE_KEY}}" &> secret_key
+          cd ~
+          cat ~/.ssh/secret_key
