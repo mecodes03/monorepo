@@ -14,5 +14,4 @@ jobs:
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
           cat ~/.ssh/secret_key
           echo "${{secrets.SSH_HOST}}" &> .ssh/known_hosts
-          ssh -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}}
-          ls -la
+          ssh -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} && ls -la
