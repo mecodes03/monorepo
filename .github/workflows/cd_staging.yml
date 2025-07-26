@@ -12,11 +12,7 @@ jobs:
         run: |
           mkdir .ssh
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
-<<<<<<< HEAD
           cat ~/.ssh/secret_key
           echo "${{secrets.SSH_HOST}}" &> .ssh/known_hosts
           ssh -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}}
-          ls -lrt
-=======
-          ls .ssh
->>>>>>> 8c3c619c9fd8cb7564c49ac243c72cc0a9b4f28a
+          ls -la
