@@ -11,6 +11,6 @@ jobs:
       - name: add SSH private Key
         run: |
           mkdir .ssh
-          echo "key: ${{env.SSH_PRIVATE_KEY}}" > .ssh/secret_key
+          echo "key: ${{env.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
           cat ~/.ssh/secret_key
           ls -a
