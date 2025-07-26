@@ -10,10 +10,11 @@ jobs:
     steps:
       - name: add SSH private Key
         run: |
+          cd ~
           rm -rf .ssh
           mkdir .ssh
           cd .ssh
           touch secret_key
-          echo "key: ${{env.SSH_PRIVATE_KEY}}" &> secret_key
-          cd ~
+          ls
           cat ~/.ssh/secret_key
+          echo "key: ${{env.SSH_PRIVATE_KEY}}" &> secret_key
