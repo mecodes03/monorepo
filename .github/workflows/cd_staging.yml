@@ -13,4 +13,4 @@ jobs:
           mkdir .ssh
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
           chmod 400 .ssh/secret_key
-          ssh -o StrictHostKeyChecking=no -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} -t "cd monorepo && npm i -g pnpm && pnpm install && pnpm build && pm2 restart "api" && pm2 restart "web" && pm2 restart "ws""
+          ssh -o StrictHostKeyChecking=no -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} -t "cd monorepo && git pull && pnpm install && pnpm build && pm2 restart "api" && pm2 restart "web" && pm2 restart "ws""
