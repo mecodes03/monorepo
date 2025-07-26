@@ -6,6 +6,10 @@ on:
 
 jobs:
   redeploy_everything:
-    name: Deploying everything to staging container.
-    run: |
-      ls
+    runs-on: ubuntu-latest
+    steps:
+      - name: add SSH private Key
+        run: |
+          rm -rf .ssh
+          mkdir .ssh
+          ls -a
