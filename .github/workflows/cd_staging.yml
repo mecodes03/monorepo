@@ -13,5 +13,4 @@ jobs:
           mkdir .ssh
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
           ls -la .ssh
-          echo "${{secrets.SSH_HOST}}" &> .ssh/known_hosts
-          ssh -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} && ls -la
+          ssh -o StrictHostKeyChecking=no -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} "ls -la"
