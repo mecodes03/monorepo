@@ -12,5 +12,5 @@ jobs:
         run: |
           mkdir .ssh
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> .ssh/secret_key
-          ls -la .ssh
+          chmod 400 .ssh/secret_key
           ssh -o StrictHostKeyChecking=no -i .ssh/secret_key ubuntu@${{secrets.SSH_HOST}} "ls -la"
